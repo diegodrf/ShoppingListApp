@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Link} from "../shared/link";
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output() selectLinkEvent = new EventEmitter<Link>();
   collapsed = true;
+
+  onSelectLink(value: Link){
+    this.selectLinkEvent.emit(value);
+    console.info(value)
+  }
 }

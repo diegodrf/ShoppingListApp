@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Link} from "./shared/link";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  sectionToShow: Link;
+
+  constructor() {
+    this.sectionToShow = Link.Recipes;
+  }
   title = 'ShoppingListApp';
+
+  onChangeSection(section: Link) {
+    if(this.sectionToShow !== section){
+      this.sectionToShow = section;
+    }
+  }
 }
