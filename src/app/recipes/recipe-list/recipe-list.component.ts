@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Recipe} from "../recipe";
 
 @Component({
@@ -7,6 +7,7 @@ import {Recipe} from "../recipe";
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent {
+  @Output() recipeChangeEvent = new EventEmitter<Recipe>();
   recipes: Recipe[];
 
   constructor() {
@@ -17,10 +18,14 @@ export class RecipeListComponent {
         'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
       ),
       new Recipe(
-        'A test Recipe',
-        'This is simply a test.',
+        'A test Recipe2',
+        'This is simply a test 2.',
         'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
       )
     ];
+  }
+
+  onSelectRecipe(recipe: Recipe) {
+    this.recipeChangeEvent.emit(recipe);
   }
 }
