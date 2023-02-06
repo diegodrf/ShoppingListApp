@@ -10,7 +10,7 @@ export class AppComponent {
   sectionToShow: Link;
 
   constructor() {
-    this.sectionToShow = Link.Recipes;
+    this.sectionToShow = Link.ShoppingList;
   }
   title = 'ShoppingListApp';
 
