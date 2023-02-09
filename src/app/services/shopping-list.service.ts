@@ -16,8 +16,16 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
-  addIngredient(ingredient: Ingredient){
-    this.ingredients.push(ingredient);
+  addIngredient(ingredient: Ingredient) {
+    let i = this.ingredients.find( i => i.name.toLowerCase() === ingredient.name.toLowerCase());
+
+    if(i) {
+      let index = this.ingredients.indexOf(i);
+      this.ingredients[index].amount += i.amount;
+    } else {
+      this.ingredients.push(ingredient);
+    }
+
     this.ingredientsChanged.emit(this.getIngredients());
   }
 }
