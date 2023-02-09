@@ -32,4 +32,8 @@ export class RecipeService {
   getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
+
+  getRecipeById(id: number): Recipe {
+    return this.recipes.filter(r => r.id === id)[0];
+  }
 }
