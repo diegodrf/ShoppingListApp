@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     component: RecipesComponent
   },
   {
-    path: 'ShoppingList',
+    path: 'shopping-list',
     component: ShoppingListComponent
   }
 ];
