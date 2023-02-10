@@ -1,1 +1,7 @@
-<p>recipe-edit works!</p>
+<h4>
+  Edit Mode:
+  <strong
+    [ngStyle]="{color: editMode ? '#FF0000' : '#00FF00'}"
+  >{{ editMode.toString() | uppercase }}
+  </strong>
+</h4>
